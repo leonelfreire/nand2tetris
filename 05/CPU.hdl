@@ -40,19 +40,11 @@ CHIP CPU {
 
     PARTS:
     // Decodes the instruction
-<<<<<<< HEAD
     Mux16(
         // Type A
         a[0..2]=false,   // j3 j2 j1
         a[3..5]=false,   // d3 d2 d1
         a[6..7]=false,   // c6 c5
-=======
-	Mux16(
-        // Type A
-		a[0..2]=false,   // j3 j2 j1
-		a[3..5]=false,   // d3 d2 d1
-		a[6..7]=false,   // c6 c5
->>>>>>> ee592dce26268941dd8d6e763c17fa7eca965566
         a[8..9]=false,   // c4 c3
         a[10..11]=true,  // c2 c1
         a[12]=false,     // a
@@ -84,11 +76,7 @@ CHIP CPU {
         out[11]=c1,
         out[12]=a, // A or M?
         out[15]=i  // Instruction type
-<<<<<<< HEAD
     );
-=======
-	);
->>>>>>> ee592dce26268941dd8d6e763c17fa7eca965566
     //////////////////////////////////////////////////
 
     // y = A or M?
@@ -143,7 +131,6 @@ CHIP CPU {
     //////////////////////////////////////////////////
 
     // Main chips
-<<<<<<< HEAD
     ARegister(in=Ain, load=loadA, out=Aout, out[0..14]=addressM);
     DRegister(in=ALUout, load=d2, out=Dout);
     PC(in=Aout, load=jump, inc=true, reset=reset, out[0..14]=pc);
@@ -161,24 +148,5 @@ CHIP CPU {
         zr=ALUzr,
         ng=ALUng
     );
-=======
-	ARegister(in=Ain, load=loadA, out=Aout, out[0..14]=addressM);
-	DRegister(in=ALUout, load=d2, out=Dout);
-	PC(in=Aout, load=jump, inc=true, reset=reset, out[0..14]=pc);
-    ALU(
-		x=Dout,
-		y=y,
-		zx=c1,
-		nx=c2,
-		zy=c3,
-		ny=c4,
-		f=c5,
-		no=c6,
-		out=ALUout,
-        out=outM,
-		zr=ALUzr,
-		ng=ALUng
-	);
->>>>>>> ee592dce26268941dd8d6e763c17fa7eca965566
     //////////////////////////////////////////////////
 }
