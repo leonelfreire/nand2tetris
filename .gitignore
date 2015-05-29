@@ -1,2 +1,6 @@
 *.out
 *.hack
+__pycache__/
+*.py[cod]
+*$py.class
+
